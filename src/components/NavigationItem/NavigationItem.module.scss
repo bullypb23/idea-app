@@ -1,0 +1,34 @@
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/variables.scss';
+
+.NavigationItem {
+  height: 100%;
+  flex-basis: auto;
+
+  a {
+    height: 100%;
+    padding: 0 10px;
+    margin: 0 10px;
+    @include flex(center, center);
+    flex-direction: column;
+    color:#fff;
+    font-size: 1.2rem;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      bottom: 0;
+      transition: all 0.2s ease-in;
+    }
+    
+    &:hover {
+
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/variables.scss';
+
+.Header {
+  height: 60px;
+  width: 100%;
+  background-color: $primary;
+  @include flex(space-between, center);
+  flex-wrap: wrap;
+  padding: 0 30px;
+
+  .Logo {
+    flex: 1 1 20%;
+    height: 100%;
+
+    a {
+      height: 100%;
+      @include flex(center, center);
+      padding: 5px;
+  
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
