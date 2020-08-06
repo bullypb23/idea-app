@@ -7,8 +7,8 @@ const Navigation = () => {
     <div className={classes.Navigation}>
       <nav>
         <ul>
-          <NavigationItem link='/add_new'>Add New Idea</NavigationItem>
-          <NavigationItem link='/list'>See All Ideas</NavigationItem>
+          <NavigationItem link='/add_new_idea'>Add New Idea</NavigationItem>
+          <NavigationItem link='/ideas'>See All Ideas</NavigationItem>
         </ul>
       </nav>
     </div>

@@ -1,3 +1,6 @@
+@import './assets/scss/variables.scss';
+@import './assets/scss/mixins.scss';
+
 .App {
   text-align: center;
 }
@@ -14,4 +17,17 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+.error {
+  color: $red;
+}
+
+.success {
+  color: green;
+}
+
+.main {
+  width: 100%;
+  @include flex(center, flex-start);
 }

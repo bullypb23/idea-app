@@ -1,0 +1,47 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.Idea {
+  flex-basis: 45%;
+  padding: 10px 20px;
+  border: 1px solid $primary;
+  border-radius: 5px;
+  @include flex(flex-start, flex-start);
+  flex-direction: column;
+  margin:10px;
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  span {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: $primary;
+  }
+
+  p {
+    padding: 5px 0;
+
+    span {
+      color: orange;
+    }
+  }
+
+  .ButtonContainer {
+    width: 100%;
+
+    button:first-child {
+      @include button($primary, 30%);
+      margin: 10px;
+      font-size: 1rem;
+    }
+    
+    button:last-child {
+      @include button($red, 30%);
+      margin: 10px;
+      font-size: 1rem;
+    }
+  }
+
+}

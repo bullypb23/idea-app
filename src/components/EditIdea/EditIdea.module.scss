@@ -1,0 +1,77 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.Container {
+  flex-basis: 80%;
+  padding: 30px 0 50px;
+  @include flex(flex-start, center);
+  flex-direction: column;
+
+  h1 {
+    font-size: 3rem;
+    color: $primary;
+    padding: 10px 0;
+  }
+
+  .FormContainer {
+    // padding: 10px 0;
+    width: 50%;
+
+    form {
+      width: 100%;
+      height: 100%;
+      padding: 0 10px;
+
+      .Wrapper {
+        @include flex(center, flex-start);
+
+        .FormControl:first-child {
+          flex: 1 1 15%;
+          @include flex(flex-start, flex-start);
+          margin-right: 10px;
+        }
+
+        .FormControl:last-child {
+          flex: 1 1 85%;
+          @include flex(flex-start, flex-start);
+        }
+      }
+
+      .FormControl {
+        width: 100%;
+        @include flex(flex-start, center);
+        flex-direction: column;
+
+        label {
+          width: 100%;
+          text-align: left;
+          padding: 10px 0;
+          font-size: 1.1rem;
+        }
+
+        input {
+          @include input(100%);
+        }
+
+        textarea {
+          @include input(100%);
+        }
+
+        select {
+          @include input(100%);
+        }
+
+        div {
+          width: 100%;
+          text-align: left;
+          font-style: italic;
+          font-size: 0.8rem;
+        }
+      }
+
+      button {
+        @include button($primary, 40%);
+      }
+    }
+  }
+}

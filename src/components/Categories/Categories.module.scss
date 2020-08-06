@@ -1,0 +1,81 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.Categories {
+  flex-basis: 80%;
+  padding: 30px 0 50px;
+  @include flex(center, flex-start);
+  flex-wrap: wrap;
+
+  h1 {
+    flex: 1 1 100%;
+    font-size: 3rem;
+    color: $primary;
+    padding: 10px 0;
+  }
+
+  .Messages {
+    flex: 1 1 100%;
+  }
+
+  .CategoriesContainer {
+    flex: 1 1 100%;
+    @include flex(flex-start, flex-start);
+    flex-wrap: wrap;
+
+    .Category {
+      flex-basis: 30%;
+      @include flex(center, center);
+      font-size: 1.2rem;
+
+      p {
+        margin-right: 10px;
+        flex: 1 1 50%;
+        text-align: right;
+        padding: 10px 0;
+      }
+
+      div {
+        flex: 1 1 50%;
+        @include flex(flex-start, center);
+      }
+    }
+  }
+
+  .FormContainer {
+    width: 50%;
+
+    h3 {
+      font-size: 2rem;
+      color: $primary;
+      padding: 10px 0;
+    }
+
+    form {
+      width: 100%;
+      height: 100%;
+      padding: 0 10px;
+
+      .FormControl {
+        width: 100%;
+        @include flex(flex-start, center);
+        flex-direction: column;
+
+        input {
+          @include input(100%);
+        }
+
+        div {
+          width: 100%;
+          text-align: left;
+          font-style: italic;
+          font-size: 0.8rem;
+        }
+      }
+
+      button {
+        @include button($primary, 30%);
+      }
+    }
+  }
+}

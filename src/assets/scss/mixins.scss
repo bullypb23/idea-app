@@ -3,3 +3,37 @@
   justify-content: $justify;
   align-items: $align;
 }
+
+@mixin input($width) {
+  width: $width;
+  padding: 10px 15px;
+  border: 1px solid $primary;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+
+  &:focus {
+    border-color: lighten($primary, 15);
+  }
+}
+
+@mixin button($color, $width) {
+  background-color: $color;
+  width: $width;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+
+  &:hover {
+    background-color: lighten($color, 15);
+  }
+
+  &:disabled {
+    background-color: $background;
+  }
+}
