@@ -70,7 +70,28 @@
       }
 
       button {
-        @include button($primary, 40%);
+        @include button($primary, auto);
+      }
+    }
+  }
+}
+
+@include media-sm {
+  .Container {
+    flex: 1 1 100%;
+    padding: 30px 20px 50px;
+
+    .FormContainer {
+      width: 100%;
+
+      form .Wrapper {
+        .FormControl:first-child {
+          flex: 1 1 25%;
+        }
+
+        .FormControl:last-child {
+          flex: 1 1 75%;
+        }
       }
     }
   }

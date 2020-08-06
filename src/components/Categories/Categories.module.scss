@@ -74,8 +74,33 @@
       }
 
       button {
-        @include button($primary, 30%);
+        @include button($primary, auto);
       }
+    }
+  }
+}
+
+@include media-sm {
+  .Categories {
+    flex: 1 1 100%;
+    padding: 30px 20px 50px;
+
+    .CategoriesContainer {
+      .Category {
+        flex: 1 1 50%; 
+
+        p {
+          flex: 1 1 80%;
+        }
+
+        div {
+          flex: 1 1 20%;
+        }
+      }
+    }
+
+    .FormContainer {
+      width: 100%;
     }
   }
 }

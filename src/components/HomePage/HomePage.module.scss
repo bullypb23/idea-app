@@ -3,22 +3,22 @@
 
 .HomePage {
   width: 100%;
-  position: relative;
+  padding: 30px 0 50px;
   @include flex(center, flex-start);
-  height: 400px;
+  height: 300px;
   
   div:first-child {
-    flex: 1 1 100%;
+    flex: 1 1 30%;
     height: 100%;
     @include flex(center, flex-start);
-
+    
     img {
       height: 100%;
     }
   }
   
   div:last-child {
-    position: absolute;
+    flex: 1 1 70%;
     height: 100%;
     @include flex(center, center);
     flex-direction: column;
@@ -27,6 +27,27 @@
       font-size: 4rem;
       padding: 10px 0;
       color: $primary;
+    }
+  }
+}
+
+@include media-sm {
+  .HomePage {
+    position: relative;
+    flex-wrap: wrap;
+    height: auto;
+
+    div:first-child {
+      padding: 10px 0 0;
+      flex: 1 1 100%;
+      
+      img {
+        width: 100%;
+      }
+    }
+    
+    div:last-child {
+      flex: 1 1 100%;
     }
   }
 }

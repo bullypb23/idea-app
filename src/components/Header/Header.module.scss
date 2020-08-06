@@ -23,4 +23,81 @@
       }
     }
   }
+
+  .MenuBtn {
+    display: none;
+  }
+}
+
+@include media-md {
+  .Header {
+    min-height: 60px;
+    height: auto;
+    padding: 0;
+
+    .Logo {
+      flex: 1 1 50%;
+      a {
+        img {
+          height: 50px;
+        }
+      }
+    }
+
+    .MenuBtn {
+      flex: 1 1 50%;
+      right: 20px;
+      display: flex;
+      position: relative;
+      justify-content: flex-end;
+      align-items: center;
+      cursor: pointer;
+      @include transition-ease;
+  
+      .MenuBtnBurger {
+        position: absolute;
+        right: 0;
+        width: 28px;
+        height: 3px;
+        background: #fff;
+        @include transition-ease;
+  
+        &:before {
+          content: '';
+          position: absolute;
+          top: -6px;
+          right: 0;
+          width: 28px;
+          height: 3px;
+          background-color: #fff;
+          @include transition-ease;
+        }
+  
+        &:after {
+          content: '';
+          position: absolute;
+          top: 6px;
+          right: 0;
+          width: 20px;
+          height: 3px;
+          background-color: #fff;
+          @include transition-ease;
+        }
+  
+        &.Open {
+          transform: rotate(720deg);
+          background: transparent;
+    
+          &:before {
+            transform: rotate(45deg) translate(2px, 3px);
+          }
+    
+          &:after {
+            width: 28px;
+            transform: rotate(-45deg) translate(5px, -7px);
+          }
+        } 
+      }
+    }
+  }
 }

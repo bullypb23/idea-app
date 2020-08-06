@@ -16,3 +16,14 @@
     flex-wrap: wrap;
   }
 }
+
+@include media-sm {
+  .Ideas {
+    flex: 1 1 100%;
+    padding: 30px 20px 50px;
+
+    .IdeasContainer {
+      @include flex(center, flex-start);
+    }
+  }
+}

@@ -8,10 +8,11 @@
   border-radius: 5px;
   @include flex(flex-start, flex-start);
   flex-direction: column;
-  margin:10px;
+  margin: 10px;
 
   h3 {
     font-size: 1.5rem;
+    text-align: left;
   }
 
   span {
@@ -22,6 +23,7 @@
 
   p {
     padding: 5px 0;
+    text-align: left;
 
     span {
       color: orange;
@@ -32,16 +34,21 @@
     width: 100%;
 
     button:first-child {
-      @include button($primary, 30%);
+      @include button($primary, auto);
       margin: 10px;
       font-size: 1rem;
     }
     
     button:last-child {
-      @include button($red, 30%);
+      @include button($red, auto);
       margin: 10px;
       font-size: 1rem;
     }
   }
+}
 
+@include media-sm {
+  .Idea {
+    flex: 1 1 80%;
+  }
 }

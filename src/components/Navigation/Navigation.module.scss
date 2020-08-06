@@ -14,3 +14,21 @@
     }
   }
 }
+
+@include media-md {
+  .Navigation {
+    flex: 1 1 100%;
+    height: 0;
+    visibility: hidden;
+    
+    ul {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    &.Open {
+      height: auto;
+      visibility: visible;
+    }
+  }
+}

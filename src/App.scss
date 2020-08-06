@@ -3,6 +3,7 @@
 
 .App {
   text-align: center;
+  max-width: 100vw;
 }
 
 * {
@@ -29,5 +30,6 @@ a {
 
 .main {
   width: 100%;
+  max-width: 100vw;
   @include flex(center, flex-start);
 }

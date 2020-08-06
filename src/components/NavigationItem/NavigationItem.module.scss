@@ -32,3 +32,16 @@
     }
   }
 }
+
+@include media-md {
+  .NavigationItem {
+    background-color: #fff;
+    width: 100%;
+    border-bottom: 1px solid $secondary;
+    
+    a {
+      color: $secondary;
+      padding: 10px;
+    }
+  }
+}
