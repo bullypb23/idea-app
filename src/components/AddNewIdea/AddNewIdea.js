@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import TextError from '../TextError/TextError';
+import Spinner from '../Spinner/Spinner';
 import axios from 'axios';
 import classes from './AddNewIdea.module.scss';
 
@@ -39,18 +40,20 @@ const AddNewIdea = props => {
   }, [])
   
   const onSubmit = (values, onSubmitProps) => {
-    onSubmitProps.setSubmitting(false);
-
+    onSubmitProps.setSubmitting(true);
+    
     axios.post('https://idea-app-38f3a.firebaseio.com/ideas.json', {
       ...values,
       created_at: new Date(),
       updated_at: new Date()
     })
-      .then(response => {
+    .then(response => {
+        onSubmitProps.setSubmitting(false);
         onSubmitProps.resetForm();
         props.history.push('/ideas');
       })
       .catch(error => {
+        onSubmitProps.setSubmitting(false);
         setErrorMessage('Something went wrong!');
       })
   };
@@ -67,7 +70,7 @@ const AddNewIdea = props => {
           {formik => {
             return (
               <Form>
-
+                {formik.isSubmitting ? <Spinner /> : null}
                 <div className={classes.Wrapper}>
                   <div className={classes.FormControl}>
                     <label id="number">No</label>

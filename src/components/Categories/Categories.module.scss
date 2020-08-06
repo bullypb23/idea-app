@@ -6,22 +6,23 @@
   padding: 30px 0 50px;
   @include flex(center, flex-start);
   flex-wrap: wrap;
-
+  
   h1 {
     flex: 1 1 100%;
     font-size: 3rem;
     color: $primary;
     padding: 10px 0;
   }
-
+  
   .Messages {
     flex: 1 1 100%;
   }
-
+  
   .CategoriesContainer {
     flex: 1 1 100%;
     @include flex(flex-start, flex-start);
     flex-wrap: wrap;
+    position: relative;
 
     .Category {
       flex-basis: 30%;

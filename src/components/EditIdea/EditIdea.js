@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import classes from './EditIdea.module.scss';
 import * as Yup from 'yup';
 import TextError from '../TextError/TextError';
+import Spinner from '../Spinner/Spinner';
 import axios from 'axios';
 
 const validationSchema = Yup.object({
@@ -40,17 +41,19 @@ const EditIdea = props => {
 
   
   const onSubmit = (values, onSubmitProps) => {
-    onSubmitProps.setSubmitting(false);
-
+    onSubmitProps.setSubmitting(true);
+    
     axios.patch(`https://idea-app-38f3a.firebaseio.com/ideas/${props.match.params.id}.json`, {
       ...values,
       updated_at: new Date()
     })
-      .then(response => {
+    .then(response => {
+        onSubmitProps.setSubmitting(false);
         onSubmitProps.resetForm();
         props.history.push('/ideas');
       })
       .catch(error => {
+        onSubmitProps.setSubmitting(false);
         setErrorMessage('Something went wrong!')
       })
   };
@@ -59,7 +62,7 @@ const EditIdea = props => {
     <div className={classes.Container}>
       <h1>Edit idea</h1>
       <div className={classes.FormContainer}>
-        {loaded && <Formik
+        {loaded ? <Formik
           initialValues={idea}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
@@ -67,7 +70,7 @@ const EditIdea = props => {
           {formik => {
             return (
               <Form>
-
+                {formik.isSubmitting ? <Spinner /> : null}
                 <div className={classes.Wrapper}>
                   <div className={classes.FormControl}>
                     <label id="number">No</label>
@@ -121,7 +124,7 @@ const EditIdea = props => {
               </Form>
             )
           }}
-        </Formik>}
+        </Formik> : <Spinner />}
       </div>
     </div>
   )

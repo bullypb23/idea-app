@@ -4,6 +4,7 @@ import axios from 'axios';
 import { FaTimesCircle } from 'react-icons/fa';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import TextError from '../TextError/TextError';
+import Spinner from '../Spinner/Spinner';
 import * as Yup from 'yup';
 
 const initialValues = {
@@ -31,13 +32,13 @@ const Categories = props => {
         setLoaded(true);
       })
       .catch(error => {
-        console.log(error)
+        setErrorMessage('Something went wrong!');
       })
   }
 
   const handleDeleteCategory = id => {
     axios.delete(`https://idea-app-38f3a.firebaseio.com/categories/${id}.json`)
-      .then(response => {
+    .then(response => {
         setSuccessMessage('Successfully deleted category!');
         fetchCategories();
       })
@@ -47,14 +48,17 @@ const Categories = props => {
   }
 
   const onSubmit = (values, onSubmitProps) => {
-    onSubmitProps.setSubmitting(false);
-
+    onSubmitProps.setSubmitting(true);
+    
     axios.post('https://idea-app-38f3a.firebaseio.com/categories.json', values)
-      .then(response => {
+    .then(response => {
+        onSubmitProps.setSubmitting(false);
         onSubmitProps.resetForm();
+        setSuccessMessage('Successfully added category!');
         fetchCategories();
       })
       .catch(error => {
+        onSubmitProps.setSubmitting(false);
         setErrorMessage('Something went wrong!');
       })
   }
@@ -93,6 +97,7 @@ const Categories = props => {
           {formik => {
             return (
               <Form>
+                {formik.isSubmitting ? <Spinner /> : null}
                 <div className={classes.FormControl}>
                   <Field type="text" name="category" />
                   <ErrorMessage name="category" component={TextError} />
