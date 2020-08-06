@@ -12,7 +12,7 @@
   }
 
   .IdeasContainer {
-    @include flex(flex-start, flex-start);
+    @include flex(space-around, flex-start);
     flex-wrap: wrap;
   }
 }
